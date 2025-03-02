@@ -7,7 +7,7 @@ variable "projeto" {
 variable "candidato" {
   description = "Nome do candidato"
   type        = string
-  default     = "Raphael"
+  default     = "Raphael-Campos"
 }
 
 variable "allowed_ssh_ips" {
