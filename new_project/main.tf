@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket         = "desafio-vexpenses"
     key            = "terraform.tfstate"
     region         = "us-east-1"
+    use_lockfile = true
   }
   required_providers {
     aws = {
@@ -15,6 +15,5 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 }
-
 
 

@@ -41,9 +41,9 @@ resource "aws_instance" "debian_ec2" {
 
   user_data = <<-EOF
               #!/bin/bash
-              apt-get update -y &&
-              DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade &&
-              apt-get install nginx -y &&
+              apt-get update -y -o DPkg::Lock::Timeout=60
+              DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade -o DPkg::Lock::Timeout=60
+              apt-get install nginx -y -o DPkg::Lock::Timeout=60
               systemctl start nginx
               systemctl enable nginx
               EOF

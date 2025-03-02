@@ -4,13 +4,12 @@ resource "aws_security_group" "main_sg" {
   description = "Permitir SSH de qualquer lugar e todo o trafego de saida"
   vpc_id      = aws_vpc.main_vpc.id
 
-  # Regras de entrada
   ingress {
     description      = "Allow SSH from anywhere"
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = var.allowed_ssh_ips
     ipv6_cidr_blocks = ["::/0"]
   }
 
@@ -32,7 +31,6 @@ resource "aws_security_group" "main_sg" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  # Regras de saída
   egress {
     description      = "Allow all outbound traffic"
     from_port        = 0
