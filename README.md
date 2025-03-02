@@ -223,6 +223,10 @@ A infraestrutura definida no código Terraform é um sistema integrado de compon
 
 ### Para reproduzir a arquitetura:
 - Crie um bucket S3 para utilizar o backend remoto
+- Clone o repositório
+    ```bash
+    git clone https://github.com/phaelcampos/desafio-VExpenses.git
+    ```
 - Inicie o terraform na pasta new_project, e coloque o nome do bucket criado anteriormente
     ````bash
      terraform init -backend-config="bucket={nome_do_bucket}"
@@ -235,7 +239,7 @@ A infraestrutura definida no código Terraform é um sistema integrado de compon
     ```bash
       terraform apply {nome_do_plano}
     ```
-
+- Para acessar a aplicação, espere um momento para a instância iniciar e instalar o nginx e acesse o IP retornado no output na porta 80
 ### Caso precise acessar a chave SSH:
 
   ```bash
